@@ -7,13 +7,7 @@ function Counter(props) {
 
   const decrement = () => setCount(count - 1);
 
-  return (
-    <>
-      <h1>Counter: {count}</h1>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
-    </>
-  );
+  return props.children({count, increment, decrement});
 }
 
 export default Counter;

@@ -6,7 +6,16 @@ function App() {
   return (
     <div className="container">
       <div className="row">
-        <Counter />
+        <Counter> 
+          
+          {({count, increment, decrement}) => <>
+        
+      <h1>Counter: {count}</h1>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </>
+        } 
+        </Counter>
       </div>
       <div className="row">
         <Form />
