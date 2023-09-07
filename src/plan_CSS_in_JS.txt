@@ -1,0 +1,107 @@
+==============📣 1. render properties 
+
+
+==============📣 2.1 styled-components 
+
+https://emotion.sh/docs/introduction
+https://www.npmjs.com/package/emotion
+https://github.com/emotion-js/emotion/tree/master/packages/emotion
+
+
+--- h1
+margin-bottom: 1rem;
+text-align: center; 
+
+==============📣 2.2 emotion
+
+--- WrapApp div 
+max-width: 1200px;
+margin: 1rem auto 0;
+
+
+======================= 👩‍🎓 ЗАВДАННЯ СЛУХАЧАМ:
+
+Реалізувати controlled form у компоненті src/components/Form.jsx
+Використовувати hook useState
+
+Приклад видео => simple_form.mkv
+
+==================================================================
+
+
+////  ------------------------- 🖍 WrapForm (form) 
+maxWidth: "400px",
+margin: "1rem auto",
+--------------------------------------------- ////
+
+////  ------------------------- 🖍 FormGroup (div)
+marginBottom: "1rem",
+--------------------------------------------- ////
+
+////  ------------------------🖍 Label
+display: "block",
+marginBottom: "1rem",
+--------------------------------------------- ////
+////  ---------------------🖍 Input
+display: "block",
+width: "100%",
+padding: "0.6rem",
+marginBottom: "1rem",
+--------------------------------------------- ////
+
+======================= 👩‍🎓 ЗАВДАННЯ СЛУХАЧАМ:
+Створити emotion компоненти  
+
+=== ButtonGroup 
+padding: "0.5rem 0"
+
+=== Button 
+padding: ".4rem .8rem",
+textTransform: "uppercase",
+borderColor: "transparent",
+borderRadius: "6px",
+cursor: "pointer",
+color: "#ffffff",
+backgroundColor: colors.danger
+
+"&:hover": {
+    backgroundColor: "#ff2b56"
+}
+
+Застосувати ці компоненти до кнопки button
+у компоненті src/components/Form.jsx
+==================================================================
+
+
+
+==============📣 use css props та macros
+npm install --save-dev babel-plugin-styled-components babel-plugin-macros
+
+---- pragma  React 16
+/** @jsx jsx */
+import {jsx} from '@emotion/react'
+
+---- pragma  React 17, 18
+/** @jsxImportSource @emotion/react */
+
+
+========= Media queries 
+========= Spinner 
+
+
+======================= 👩‍🎓 ЗАВДАННЯ СЛУХАЧАМ:
+На базі компонента Spinner створити компонент FullSpinner
+який буде відображатися посередині сторінки зі стилями
+ 
+////  ------------------------- 🖍 
+
+fontSize: "4em",
+height: "100vh",
+display: "flex",
+flexDirection: "column",
+justifyContent: "center",
+alignItems: "center"
+
+--------------------------------------------- ////
+==================================================================
+
