@@ -1,27 +1,57 @@
+import {useState, useEffect, useRef} from 'react'
+import {Header} from './styles/style'
+import {WrapForm, FormGroup, Label, Input, ButtonGroup, Button, Spiner, FullSpinner, EmailIcons} from './styles/app'
+import {sleep} from '../utils'
+
+
 const initState = {email: "", password: ""}
 
 const Form = () => {
-  const handleChange = () => {
-    // todo
+
+  const [data, setData] = useState(initState);
+  const [loading, setLoading] = useState(false);
+
+  const ref = useRef(null);
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.focus();
+    }    
+  }, [])
+
+  const handleChange = ({target}) => {
+    setData(x => ({...x, [target.name] : target.value}))
   }
 
-  const handleSubmit = e => {
-    //todo
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    await sleep();
+    console.log(data)
+    setData(initState);
+    setLoading(false);
   }
+  
+  
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input name="email" value={"email"} onChange={handleChange} />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input name="password" value={"password"} onChange={handleChange} />
-      </div>
-      <div>
-        <button type="submit">Login</button>
-      </div>
-    </form>
+    <WrapForm onSubmit={handleSubmit}>
+      <Header color="green">Form</Header>
+      {loading && <FullSpinner />}
+      
+      <FormGroup>
+        <Label htmlFor="email" style={{display:"flex", alignItems:"center", gap:"0.5rem"}}> <EmailIcons /> Email</Label>
+        <Input ref = {ref} name="email" value={data.email} onChange={handleChange}  />
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="password">Password</Label>
+        <Input name="password" value={data.password} onChange={handleChange} />
+      </FormGroup>
+      <ButtonGroup>
+        <Button type="submit" mr="0.5rem">
+        Login {loading && <Spiner />}
+        </Button>
+        <Button type="reset">Reset</Button>
+      </ButtonGroup>
+    </WrapForm>
   )
 }
 

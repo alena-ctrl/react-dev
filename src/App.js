@@ -1,26 +1,29 @@
 import React from "react"
 import Counter from "./components/Counter"
 import Form from "./components/Form"
+import {Header1, Button, WrapButton} from './components/styles/style'
+import {WrapApp} from './components/styles/app'
 
 function App() {
+  
   return (
-    <div className="container">
-      <div className="row">
+    <WrapApp >
+      <WrapButton >
         <Counter> 
           
           {({count, increment, decrement}) => <>
         
-      <h1>Counter: {count}</h1>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
+      <Header1 color="red" >Counter: {count}</Header1>      
+      <Button onClick={increment} >Increment</Button>
+      <Button onClick={decrement} >Decrement</Button>      
     </>
         } 
         </Counter>
-      </div>
+      </WrapButton>
       <div className="row">
         <Form />
       </div>
-    </div>
+    </WrapApp>
   )
 }
 
