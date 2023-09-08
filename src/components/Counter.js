@@ -7,7 +7,7 @@ function Counter(props) {
 
   const decrement = () => setCount(count - 1);
 
-  return props.children({count, increment, decrement});
+  return props.children({ count, increment, decrement });
 }
 
 export default Counter;
